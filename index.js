@@ -11,10 +11,20 @@ console.log(dirname);
 app.use(express.static(path.join(dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
+app.set('view engine', 'ejs');
+app.set('views', path.join(dirname, 'views'));
+
+const data = [];
+
 app.post('/join', (req, res) => {
     const nickname = req.body.nickname;
+    data.push({
+        nickname: 'System',
+        message: 'Welome ' + nickname,
+        datetime: new Date()
+    });
 
-    res.send('welcome ' + nickname);
+    res.render('chat', { nickname });
 });
 
 app.listen(3000, () => {
