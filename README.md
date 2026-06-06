@@ -2,9 +2,12 @@
 
 ## Tasks:
 - (done) chat history style, different colours for different people.
-
-- chat history `scroll`
-- stop sending empty strings.
-- private chat.
+- (done) chat history `scroll`
+- (done) stop sending empty strings.
 - nickname validation.
-- retrieve delta message.
+- (done) retrieve delta message.
+- private chat.
+
+
+- auto focus on the input boxes.
+
