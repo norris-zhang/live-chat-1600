@@ -29,3 +29,8 @@
 .system-msg {
     color: aliceblue;
 }
+
+.chat-datetime {
+    color: paleturquoise;
+    font-size: 0.7rem;
+}
