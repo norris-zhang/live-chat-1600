@@ -26,6 +26,7 @@
             });
 
             poll();
+            updateDateTimeDisplay();
         });
 
         function getMessageClass(hisMessage) {
@@ -50,7 +51,7 @@
                 const bottomGap = chatHistoryElem.scrollHeight - chatHistoryElem.scrollTop - chatHistoryElem.clientHeight;
 
                 chatHistoryElem.innerHTML += data
-                .map(his => `<p class="${getMessageClass(his)}"><span class="chat-datetime">${displayedDateTime(new Date(his.datetime))}</span><br>${his.nickname}: ${his.message}</p>`)
+                .map(his => `<p class="${getMessageClass(his)}"><span class="chat-datetime" data-ts="${his.datetime}">${displayedDateTime(new Date(his.datetime))}</span><br>${his.nickname}: ${his.message}</p>`)
                 .join('');
 
                 if (bottomGap < 5) {
@@ -94,9 +95,20 @@
                 && nowObj.getMonth() === dateObj.getMonth()
                 && nowObj.getDate() === dateObj.getDate()) {
                 
-                return dateObj.getHours() + ':' + dateObj.getMinutes();
+                return dateObj.getHours() + ':' + String(dateObj.getMinutes()).padStart(2, '0');
             }
-            return `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getHours()}:${dateObj.getMinutes()}`;
+            return `${dateObj.getDate()} ${months[dateObj.getMonth()]} ${dateObj.getHours()}:${String(dateObj.getMinutes()).padStart(2, '0')}`;
+        }
+
+
+        function updateDateTimeDisplay() {
+            document.querySelectorAll('span.chat-datetime').forEach(sp => {
+                const thenDatetime = new Date(sp.dataset['ts']);
+                const dtstr = displayedDateTime(thenDatetime);
+                sp.innerHTML = dtstr;
+            });
+            
+            setTimeout(updateDateTimeDisplay, 30*1000);
         }
     </script>
 </body>

@@ -6,11 +6,11 @@
 - (done) stop sending empty strings.
 - (done) nickname validation.
 - (done) retrieve delta message.
-- date time
-- update date time every 30 seconds.
+- (done) date time
+- (done) update date time every 30 seconds.
+- persist messages.
+
 - quote another chat item.
 - private chat.
-
-
 - auto focus on the input boxes.
 
