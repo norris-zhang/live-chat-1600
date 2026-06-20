@@ -8,7 +8,9 @@
 - (done) retrieve delta message.
 - (done) date time
 - (done) update date time every 30 seconds.
-- persist messages.
+- (done)persist messages.
+- chat.ejs poll() error handling.
+- exponetial backoff.
 
 - quote another chat item.
 - private chat.
